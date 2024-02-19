@@ -1,36 +1,24 @@
 package pages;
  
 import java.time.Duration;
- 
 import org.openqa.selenium.Alert;
-
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.WebElement;
-
 import org.openqa.selenium.support.FindBy;
-
 import org.openqa.selenium.support.PageFactory;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import org.testng.Assert;
- 
 public class DeleteArticlePage {
 
 	WebDriver driver;
 
 
-	@FindBy(xpath = "(//a[@class=\"author\"])[1]")
-
+	@FindBy(xpath = "(//a[@class='author'])[1]")
 	WebElement profile;
 
 	@FindBy(xpath="(//button[text()=' Delete Article'])[2]")
-
     WebElement deleteBtn;
 
 	public DeleteArticlePage(WebDriver driver)
@@ -38,7 +26,6 @@ public class DeleteArticlePage {
 	{
 
 		this.driver=driver;
-
 		PageFactory.initElements(driver, this);
 
 	}
@@ -46,7 +33,6 @@ public class DeleteArticlePage {
 	public void navigateToProfile()
 
 	{
-
 		profile.click();
 
 	}
@@ -62,7 +48,6 @@ public class DeleteArticlePage {
 	public void deleteArticle()
 
 	{
-
 		deleteBtn.click();
 		Alert alert=driver.switchTo().alert();
 		Assert.assertEquals(alert.getText(), "Want to delete the article?");

@@ -20,7 +20,7 @@ public class UpdateArticlePage {
 	@FindBy(xpath="//input[@class='form-control ' and @name='description']") 
 	WebElement articleAbout; 
 	
-	@FindBy(xpath="//textArea[@rows='8']") 
+	@FindBy(xpath="//textArea[@placeholder='Write your article (in markdown)']") 
 	WebElement textArea;
 	
 	@FindBy(xpath="//input[@placeholder='Enter tags']") 
@@ -35,7 +35,7 @@ public class UpdateArticlePage {
 	@FindBy(xpath="//button[@class='nav-link ']")
 	WebElement globalfeed;
 	
-	@FindBy(xpath = "(//a[@class=\"author\"])[1]")
+	@FindBy(xpath = "(//a[@class='author'])[1]")
 	WebElement profile;
 	
 	public UpdateArticlePage(WebDriver driver)
