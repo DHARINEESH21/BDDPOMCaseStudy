@@ -53,7 +53,6 @@ public class NewArticlePage {
 	 enterTags.sendKeys(Arttags); 
 	 publish_article_btn.click(); 		
 	 
-	//   Assert.assertEquals(headerBtn.getText(),"Testing11");
  }
  public String articleName()
 	{

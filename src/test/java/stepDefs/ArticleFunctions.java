@@ -35,9 +35,9 @@ public class ArticleFunctions {
 	
 	@Given("User is on login Page")
 	public void user_is_on_login_page() {
-	    // Write code here that turns the phrase above into concrete actions
 		driver.get("https://conduit-realworld-example-app.fly.dev/#/");
 	}
+	
 	@When("User enter inValid credentials")
 	public void user_enter_in_valid_credentials(io.cucumber.datatable.DataTable dataTable) {
 		List<List<String>> users = dataTable.asLists();
@@ -46,11 +46,13 @@ public class ArticleFunctions {
 		String strPwd = users.get(1).get(1);
 		loginPage.validloginTest(strUser, strPwd);
 	}
+	
 	@Then("Should display the invalid login message")
 	public void should_display_the_invalid_login_message(io.cucumber.datatable.DataTable dataTable) {
 		Assert.assertEquals(loginPage.inValidMsg(),"Wrong email/password combination");
 	   
 	}
+	
 	@When("User enter Valid Credentials")
 	public void user_enter_valid_credentials(io.cucumber.datatable.DataTable dataTable) {
  
@@ -59,6 +61,7 @@ public class ArticleFunctions {
 		String strPwd = users.get(1).get(1);
 		loginPage.validloginTest(strUser, strPwd);
 	}
+	
 	@Then("Should display the success login message")
 	public void should_display_the_success_login_message(io.cucumber.datatable.DataTable dataTable) {
 	  
@@ -67,10 +70,12 @@ public class ArticleFunctions {
 		Assert.assertTrue(loginPage.getUserNameElement());
 	}
 	
+	
 	@Given("User is on newArticleCreationPage")
 	public void User_is_on_new_article_creation_page() {
 		newArticlePage.createArticle();
 	}
+	
 	@When("User Create the duplicate article")
 	public void user_create_the_duplicate_article(io.cucumber.datatable.DataTable dataTable) {
 		List<List<String>> duplicateArticle = dataTable.asLists();
@@ -80,6 +85,8 @@ public class ArticleFunctions {
 		String strTags = duplicateArticle.get(1).get(3);
 		newArticlePage.newArticle(strTitle, strAbout, strDesc,strTags);
 	}
+	
+	
 	@Then("Should display the duplicate article message")
 	public void should_display_the_duplicate_article_message() {
 		Assert.assertEquals(newArticlePage.duplicateArticleMsg(),"Title already exists..");
@@ -95,6 +102,8 @@ public class ArticleFunctions {
 		String strTags = duplicateArticle.get(1).get(3);
 		newArticlePage.newArticle(strTitle, strAbout, strDesc,strTags);
 	}
+	
+	
 	@Then("Should display the new Article Title")
 	public void should_display_the_new_article_title(io.cucumber.datatable.DataTable dataTable) {
 		List<List<String>> duplicateArticle = dataTable.asLists();
@@ -104,23 +113,22 @@ public class ArticleFunctions {
 
 	@Given("User is on updateArticlePage")
 	public void user_is_on_update_article_page(io.cucumber.datatable.DataTable dataTable) {
-	    // Write code here that turns the phrase above into concrete actions
 		List<List<String>> articleNameToUpdate = dataTable.asLists();
 		String strUpdateTitle = articleNameToUpdate.get(1).get(0);
 		updateArticlePage.navigateToProfile();
 	    updateArticlePage.locateTitle(strUpdateTitle).click();
 	}
+	
 	@When("User Update the Article")
 	public void user_update_the_article(io.cucumber.datatable.DataTable dataTable) {
 		List<List<String>> articleUpdateDetails = dataTable.asLists();
 		String strUpdateTitle = articleUpdateDetails.get(1).get(0);
 		String strUpdateAbout = articleUpdateDetails.get(1).get(1);
-		//String strUpdateDesc = articleUpdateDetails.get(1).get(2);
 		updateArticlePage.updateArticle(strUpdateTitle, strUpdateAbout);
 	}
+	
 	@Then("Should display the updated Article Title")
 	public void should_display_the_updated_article_title(io.cucumber.datatable.DataTable dataTable) {
-	    // Write code here that turns the phrase above into concrete actions
 		List<List<String>> articleUpdatedName= dataTable.asLists();
 		String strUpdateTitle = articleUpdatedName.get(1).get(0);
 		String updatedTitle = updateArticlePage.updatedName(strUpdateTitle);
@@ -134,16 +142,16 @@ public class ArticleFunctions {
 		deleteArticlePage.navigateToProfile();
 		deleteArticlePage.locateTitle(strArticleToDelete).click();
 	}
+	
 	@When("User delete the Article")
 	public void user_delete_the_article() {
 	   deleteArticlePage.deleteArticle();
 	}
+
 	@Then("Should display the article deletion msg")
 	public void Should_display_the_article_deletion_msg(io.cucumber.datatable.DataTable dataTable) {
-	    // Write code here that turns the phrase above into concrete actions
 		List<List<String>> deletionMsg = dataTable.asLists();
 		String deletionText = deletionMsg.get(1).get(0);
-	    //deleteArticlePage.deleteCheck();
 		Assert.assertEquals(deleteArticlePage.deleteCheck(deletionText),deletionText);
 	}
 	

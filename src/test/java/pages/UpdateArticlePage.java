@@ -27,14 +27,8 @@ public class UpdateArticlePage {
 	WebElement homeBtn;
 	@FindBy(xpath="//button[@class='nav-link ']")
 	WebElement globalfeed;
-//	@FindBy(xpath="//h1[contains(text(),'Article2')]")
-//    WebElement updatedTitle;
 	@FindBy(xpath = "(//a[@class=\"author\"])[1]")
 	WebElement profile;
-//	@FindBy(xpath = "//h1[contains(text(),'Article5')]")
-//	WebElement articleHeader;
-//	@FindBy(xpath="//h1[contains(text(),'Article2')]")
-//    WebElement updatedTitle;
 	public UpdateArticlePage(WebDriver driver)
 	{
 		PageFactory.initElements(driver,this);
@@ -42,7 +36,7 @@ public class UpdateArticlePage {
 	public void navigateToProfile()
 	{
 		profile.click();
-		//articleHeader.click();
+
 	}
 
 	public void updateArticle(String strTitle,String strAbout) { 
