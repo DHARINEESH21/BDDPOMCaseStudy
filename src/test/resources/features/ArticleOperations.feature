@@ -20,14 +20,14 @@ Scenario: User Create the Article with duplicate Title
 Given User is on newArticleCreationPage
 When   User Create the duplicate article
 | articleTitle | description | body | tags |
-| Testing12 | 2 | des | auto |
+| Testing12 | Testing | Testing methods | auto |
 Then   Should display the duplicate article message
  
 Scenario: User Create the new Article
 Given User is on newArticleCreationPage
 When User create the new Article
 | articleTitle | description | body | tags |
-| Testing13 | 2 | des | auto |
+| Testing13 | Testing |Testing methods | auto |
 Then Should display the new Article Title
 |Testing13|
  
@@ -37,7 +37,7 @@ Given User is on updateArticlePage
 | Testing13 |
 When User Update the Article
 | title |about|desc|
-| Testing14 | sample article |sample article|
+| Testing14 | sample article |sample articles|
 Then Should display the updated Article Title
 | title |
 | Testing14 |

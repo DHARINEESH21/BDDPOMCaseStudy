@@ -13,22 +13,31 @@ public class UpdateArticlePage {
 	WebDriver driver = TestBase.getDriver();
 	@FindBy(xpath="(//a[contains(text(),' Edit Article')])[1]")
 	WebElement edit; 
+	
 	@FindBy(xpath="//input[@placeholder='Article Title']") 
 	WebElement articleTitle; 
+	
 	@FindBy(xpath="//input[@class='form-control ' and @name='description']") 
 	WebElement articleAbout; 
+	
 	@FindBy(xpath="//textArea[@rows='8']") 
 	WebElement textArea;
+	
 	@FindBy(xpath="//input[@placeholder='Enter tags']") 
 	WebElement enterTags; 
+	
 	@FindBy(xpath="//button[contains(text(),'Update Article')]")
 	WebElement updateBtn; 
+	
 	@FindBy(xpath="(//a[@href='#/'])[2]") 
 	WebElement homeBtn;
+	
 	@FindBy(xpath="//button[@class='nav-link ']")
 	WebElement globalfeed;
+	
 	@FindBy(xpath = "(//a[@class=\"author\"])[1]")
 	WebElement profile;
+	
 	public UpdateArticlePage(WebDriver driver)
 	{
 		PageFactory.initElements(driver,this);

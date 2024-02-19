@@ -1,4 +1,3 @@
-
 package pages;
  
 import java.time.Duration;
@@ -55,9 +54,7 @@ public class DeleteArticlePage {
 	public WebElement  locateTitle(String strTitle) {
 
 	    String xpathExpression = "//h1[contains(text(),'" + strTitle + "')]";
-
 	    WebElement articleToDelete=driver.findElement(By.xpath(xpathExpression));
-
 	    return articleToDelete;
 
 	}
@@ -66,13 +63,9 @@ public class DeleteArticlePage {
 
 	{
 
-
 		deleteBtn.click();
-
 		Alert alert=driver.switchTo().alert();
-
 		Assert.assertEquals(alert.getText(), "Want to delete the article?");
-
 		alert.accept();
 
 
@@ -81,9 +74,7 @@ public class DeleteArticlePage {
 	public String deleteCheck(String deletionMsg) {
  
 	    String xpathExpression = "//div[contains(text(),'" + deletionMsg + "')]";
-
 	    WebElement deletionText = driver.findElement(By.xpath(xpathExpression));
-
 	    return deletionText.getText();
 
 	}
